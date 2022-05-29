@@ -13,7 +13,7 @@ const Home: NextPage = ({ banners }: any) => (
     </Head>
     <div className={styles.container}>
       <main>
-        <Hero banners={banners} autoPlayBanner={2} timeAmount={2500} />
+        <Hero banners={banners} autoPlayBanner={2} timeAmount={1000} />
         <div>
           <section>
             <article>

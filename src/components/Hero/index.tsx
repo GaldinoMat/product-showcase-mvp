@@ -16,6 +16,7 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
 
   const [width, setWidth] = useState(0);
   const autoPlay = useRef(() => {});
+  const resizeRef = useRef(() => {});
 
   const { length } = banners;
 
@@ -51,18 +52,29 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
     });
   };
 
+  const handleResize = () => {
+    setState({ ...state, translate: width, transition: 0 });
+  };
+
   useEffect(() => {
     autoPlay.current = nextSlide;
+    resizeRef.current = handleResize;
   });
 
   useEffect(() => {
-    setWidth(window.innerWidth);
+    const updateWindowDimensions = () => {
+      setWidth(window.innerWidth);
+    };
     const play = () => {
       autoPlay.current();
     };
 
     const interval = setInterval(play, autoPlayBanner * timeAmount);
-    return () => clearInterval(interval);
+    window.addEventListener('resize', updateWindowDimensions);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', updateWindowDimensions);
+    };
   }, []);
 
   return (
