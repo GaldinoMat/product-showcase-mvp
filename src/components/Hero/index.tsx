@@ -56,9 +56,11 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
   });
 
   useEffect(() => {
+    setWidth(window.innerWidth);
     const updateWindowDimensions = () => {
       setWidth(window.innerWidth);
     };
+
     const play = () => {
       autoPlay.current();
     };
@@ -75,7 +77,7 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
     <div className={styles.slider}>
       <HeroContent translate={translate} transition={transition} width={width * length}>
         {banners.map((banner: IBannersProps) => (
-          <HeroSlide key={banner.bannerHeroTextTitle} bannerHeroText={banner.bannerHeroText} bannerHeroTextTitle={banner.bannerHeroTextTitle} bannerImage={banner.bannerImage} />
+          <HeroSlide key={banner.bannerHeroTextTitle} bannerHeroText={banner.bannerHeroText} bannerHeroTextTitle={banner.bannerHeroTextTitle} bannerImage={banner.bannerImage} width={width} />
         ))}
       </HeroContent>
 

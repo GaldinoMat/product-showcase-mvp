@@ -4,6 +4,7 @@ export interface IBannersProps {
   bannerHeroText: string;
   bannerHeroTextTitle: string;
   bannerImage: { url: string }
+  width?: number
 }
 
 export interface IHeroProps {
