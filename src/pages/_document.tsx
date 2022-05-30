@@ -1,4 +1,8 @@
-import Document, { Html, Main, NextScript, Head } from "next/document";
+import * as React from 'react';
+
+import Document, {
+  Html, Main, NextScript, Head,
+} from 'next/document';
 
 export default class MyDocument extends Document {
   render() {
@@ -14,6 +18,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

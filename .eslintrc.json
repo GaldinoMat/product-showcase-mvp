@@ -53,11 +53,21 @@
             2,
             "ignorePackages",
             {
-              "js": "never",
-              "jsx": "never",
-              "ts": "never",
-              "tsx": "never"
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
             }
-         ]
+        ],
+        "react/jsx-props-no-spreading": [
+            "error",
+            {
+                "html": "ignore",
+                "custom": "ignore",
+                "exceptions": [
+                    ""
+                ]
+            }
+        ]
     }
 }

@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect, useRef, useState,
+} from 'react';
 import Arrow from './Arrow';
 
 import styles from './Hero.module.scss';
@@ -6,7 +8,9 @@ import HeroContent from './HeroContent';
 import HeroSlide from './HeroSlide';
 import { IHeroProps, IBannersProps } from './types/interfaces';
 
-const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
+const Hero = ({
+  banners, autoPlayBanner, timeAmount, isAutoplayOn,
+}: IHeroProps) => {
   const [state, setState] = useState({
     activeIndex: 0,
     translate: 0,
@@ -15,7 +19,7 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
   const { translate, transition, activeIndex } = state;
 
   const [width, setWidth] = useState(0);
-  const autoPlay = useRef(() => {});
+  const autoPlay = useRef(() => { });
 
   const { length } = banners;
 
@@ -65,10 +69,17 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
       autoPlay.current();
     };
 
-    const interval = setInterval(play, autoPlayBanner * timeAmount);
+    if (isAutoplayOn && autoPlayBanner > 0 && timeAmount != null) {
+      const interval = setInterval(play, autoPlayBanner * timeAmount);
+
+      window.addEventListener('resize', updateWindowDimensions);
+      return () => {
+        clearInterval(interval);
+        window.removeEventListener('resize', updateWindowDimensions);
+      };
+    }
     window.addEventListener('resize', updateWindowDimensions);
     return () => {
-      clearInterval(interval);
       window.removeEventListener('resize', updateWindowDimensions);
     };
   }, []);
@@ -81,12 +92,8 @@ const Hero = ({ banners, autoPlayBanner, timeAmount }: IHeroProps) => {
         ))}
       </HeroContent>
 
-      {!autoPlay && (
-        <>
-          <Arrow direction="left" handleClick={prevSlide} />
-          <Arrow direction="right" handleClick={nextSlide} />
-        </>
-      )}
+      <Arrow direction="left" handleClick={prevSlide} />
+      <Arrow direction="right" handleClick={nextSlide} />
     </div>
   );
 };

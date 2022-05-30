@@ -11,6 +11,7 @@ export interface IHeroProps {
   banners: IBannersProps[],
   autoPlayBanner: number,
   timeAmount: number
+  isAutoplayOn: boolean
 }
 
 export interface IHeroContentProps {
