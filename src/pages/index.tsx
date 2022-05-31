@@ -5,9 +5,10 @@ import { gql } from '@apollo/client';
 import styles from '../../styles/Home.module.scss';
 import client from '../../apolloClient';
 import Hero from '../components/Hero';
+import CTA from '../components/CTA';
 
 const Home: NextPage = ({
-  banners, isAutoPlayOn, autoplayTimer, autoPlayMultiplier,
+  bannerProps, CTAProps,
 }: any) => (
   <>
     <Head>
@@ -16,14 +17,10 @@ const Home: NextPage = ({
     <div className={styles.container}>
       <main>
         <Suspense fallback={<h1>Loading</h1>}>
-          <Hero isAutoplayOn={isAutoPlayOn} banners={banners} autoPlayBanner={autoPlayMultiplier} timeAmount={autoplayTimer} />
+          <Hero bannerProps={bannerProps} />
         </Suspense>
         <div>
-          <section>
-            <article>
-              Main call to Action
-            </article>
-          </section>
+          <CTA CTAProps={CTAProps} />
           <section>
             <article>Info Card</article>
             <article>Info Card</article>
@@ -55,6 +52,22 @@ const Home: NextPage = ({
 export default Home;
 
 export async function getStaticProps() {
+  const { data: CallToAction } = await client.query(
+    {
+      query: gql`
+      query {
+        callToActions {
+          callToActionTextsArray {
+            callToActionText
+          }
+          callToActionButtonText
+          callToActionUrlLink
+        }
+      }
+      `,
+    },
+  );
+
   const { data: banners } = await client.query(
     {
       query: gql`
@@ -76,16 +89,25 @@ export async function getStaticProps() {
     },
   );
 
+  const { callToActionTextsArray, callToActionButtonText, callToActionUrlLink } = CallToAction.callToActions[0];
+
   const {
     heroBannerAsset, isAutoPlayOn, autoplayTimer, autoPlayMultiplier,
   } = banners.heroBanners[0];
 
   return {
     props: {
-      banners: heroBannerAsset,
-      isAutoPlayOn,
-      autoplayTimer,
-      autoPlayMultiplier,
+      bannerProps: {
+        banners: heroBannerAsset,
+        isAutoPlayOn,
+        autoplayTimer,
+        autoPlayMultiplier,
+      },
+      CTAProps: {
+        callToActionTextsArray,
+        callToActionButtonText,
+        callToActionUrlLink,
+      },
     },
     revalidate: 60 * 30,
   };

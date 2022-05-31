@@ -14,6 +14,10 @@ export interface IHeroProps {
   isAutoplayOn: boolean
 }
 
+export interface IHeroBannerProps {
+  bannerProps: IHeroProps
+}
+
 export interface IHeroContentProps {
   translate: number;
   width: number;

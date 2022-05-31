@@ -6,11 +6,15 @@ import Arrow from './Arrow';
 import styles from './Hero.module.scss';
 import HeroContent from './HeroContent';
 import HeroSlide from './HeroSlide';
-import { IHeroProps, IBannersProps } from './types/interfaces';
+import { IBannersProps, IHeroBannerProps } from './types/interfaces';
 
 const Hero = ({
-  banners, autoPlayBanner, timeAmount, isAutoplayOn,
-}: IHeroProps) => {
+  bannerProps,
+}: IHeroBannerProps) => {
+  const {
+    banners, autoPlayBanner, timeAmount, isAutoplayOn,
+  } = bannerProps;
+
   const [state, setState] = useState({
     activeIndex: 0,
     translate: 0,

@@ -1,0 +1,46 @@
+@import "../../../styles/mixins";
+
+.callToActionContainer {
+  width: 100%;
+  text-align: justify;
+  margin: 3rem 0;
+  padding: 0 2rem;
+  
+  @include desktop {
+    padding: 0 20rem;
+  }
+
+  .callToActionArticle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    .callToActionArticleText {
+      color: var(--dark-grayish-blue);
+
+      & + p {
+        margin-top: 1rem;
+      }
+
+    }
+
+    .callToActionLink {
+      margin-top: 1.5rem;
+      padding: 1.25rem 2rem;
+      border-radius: 10px;
+      border: none;
+      background-color: var(--orange-primary);
+      color: var(--white);
+      transition: all .5s;
+      font-weight: 700;
+
+      &:hover {
+        transition: all .5s;
+        background-color: var(--pale-orange-primary);
+        color: var(--grayish-blue);
+      }
+    }
+  }
+}
