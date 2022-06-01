@@ -6,9 +6,10 @@ import styles from '../../styles/Home.module.scss';
 import client from '../../apolloClient';
 import Hero from '../components/Hero';
 import CTA from '../components/CTA';
+import InfoCardsGrid from '../components/InfoCardsGrid';
 
 const Home: NextPage = ({
-  bannerProps, CTAProps,
+  bannerProps, CTAProps, cardsGridProps,
 }: any) => (
   <>
     <Head>
@@ -21,11 +22,7 @@ const Home: NextPage = ({
         </Suspense>
         <div>
           <CTA CTAProps={CTAProps} />
-          <section>
-            <article>Info Card</article>
-            <article>Info Card</article>
-            <article>Info Card</article>
-          </section>
+          <InfoCardsGrid cardsGridProps={cardsGridProps} />
         </div>
         <div>
           <section>
@@ -89,11 +86,32 @@ export async function getStaticProps() {
     },
   );
 
-  const { callToActionTextsArray, callToActionButtonText, callToActionUrlLink } = CallToAction.callToActions[0];
+  const { data: InfoCards } = await client.query(
+    {
+      query: gql`
+      query {
+        infoCardGrids {
+          cardsGrid {
+            infoCardTitle
+            infoCardText
+            infoCardSlug
+            infoCardImage {
+              url
+            }
+          }
+        }
+      }
+      `,
+    },
+  );
 
   const {
     heroBannerAsset, isAutoPlayOn, autoplayTimer, autoPlayMultiplier,
   } = banners.heroBanners[0];
+
+  const { callToActionTextsArray, callToActionButtonText, callToActionUrlLink } = CallToAction.callToActions[0];
+
+  const { cardsGrid } = InfoCards.infoCardGrids[0];
 
   return {
     props: {
@@ -108,6 +126,7 @@ export async function getStaticProps() {
         callToActionButtonText,
         callToActionUrlLink,
       },
+      cardsGridProps: cardsGrid,
     },
     revalidate: 60 * 30,
   };

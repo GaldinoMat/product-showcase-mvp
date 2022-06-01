@@ -17,13 +17,13 @@
 }
 
 @mixin smallDesktop {
-  @media screen and (min-width: 85.375rem) {
+  @media screen and (min-width: 60rem) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 60rem) {
+  @media screen and (min-width: 85.375rem) {
     @content;
   }
 }

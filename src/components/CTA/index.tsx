@@ -11,7 +11,7 @@ const CTA = ({ CTAProps }: ICallToActionProps) => {
     <section className={styles.callToActionContainer}>
       <article className={styles.callToActionArticle}>
         {callToActionTextsArray.map((text) => (
-          <p className={styles.callToActionArticleText}>
+          <p key={callToActionTextsArray.indexOf(text)} className={styles.callToActionArticleText}>
             {text.callToActionText}
           </p>
         ))}

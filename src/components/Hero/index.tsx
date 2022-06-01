@@ -1,6 +1,7 @@
 import React, {
   useEffect, useRef, useState,
 } from 'react';
+import useWindowWidth from '../../hooks/useWindowWidth';
 import Arrow from './Arrow';
 
 import styles from './Hero.module.scss';
@@ -22,8 +23,9 @@ const Hero = ({
   });
   const { translate, transition, activeIndex } = state;
 
-  const [width, setWidth] = useState(0);
   const autoPlay = useRef(() => { });
+
+  const width = useWindowWidth();
 
   const { length } = banners;
 
@@ -64,11 +66,6 @@ const Hero = ({
   });
 
   useEffect(() => {
-    setWidth(window.innerWidth);
-    const updateWindowDimensions = () => {
-      setWidth(window.innerWidth);
-    };
-
     const play = () => {
       autoPlay.current();
     };
@@ -76,16 +73,12 @@ const Hero = ({
     if (isAutoplayOn && autoPlayBanner > 0 && timeAmount != null) {
       const interval = setInterval(play, autoPlayBanner * timeAmount);
 
-      window.addEventListener('resize', updateWindowDimensions);
       return () => {
         clearInterval(interval);
-        window.removeEventListener('resize', updateWindowDimensions);
       };
     }
-    window.addEventListener('resize', updateWindowDimensions);
-    return () => {
-      window.removeEventListener('resize', updateWindowDimensions);
-    };
+
+    return () => {};
   }, []);
 
   return (
