@@ -1,0 +1,132 @@
+@import "../../../styles/mixins";
+
+.footerElement {
+  text-align: center;
+  width: 100%;
+  height: 14rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  position: relative;
+  align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: var(--grayish-blue);
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 75%;
+    height: .0625rem;
+  }
+
+  section {
+
+    &+section {
+      margin-top: 2rem;
+
+      @include desktop {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .footerElementTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0 8rem;
+    }
+
+    .footerContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      ul {
+        list-style-type: none;
+      }
+
+      @include desktop {
+        width: 100%;
+        padding: 0 8rem;
+      }
+
+      .footerLinksContainer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+
+        @include desktop {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        
+        ul {
+          li {
+            color: var(--dark-grayish-blue);
+            text-align: left;
+
+            &+li {
+              margin-top: 1.5rem;
+            }
+          }
+        }
+        
+        .footerSocialMedia {
+          margin-right: 2rem;
+
+          @include desktop {
+            display: flex;
+          }
+
+          .footerSocialMediaIconContainer {
+            width: 1.875rem;
+            height: 1.875rem;
+  
+            @include desktop {
+              margin-top: 0;
+
+              & + li {
+                margin-left: 1.5rem;
+              }
+            }
+
+            .footerSocialMediaIcon {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footerCopyright {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    p {
+      margin-right: .3125rem;
+    }
+  }
+}

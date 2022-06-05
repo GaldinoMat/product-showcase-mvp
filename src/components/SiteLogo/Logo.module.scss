@@ -1,0 +1,13 @@
+@import "../../../styles/mixins";
+
+.logoHeaderContainer {
+  position: relative;
+  width: 11.5rem;
+  height: 1.5rem;
+  margin-left: 1.5rem;
+
+
+  @include desktop {
+    margin-left: 0;
+  }
+}

@@ -7,6 +7,7 @@ import client from '../../apolloClient';
 import Hero from '../components/Hero';
 import CTA from '../components/CTA';
 import InfoCardsGrid from '../components/InfoCardsGrid';
+import Footer from '../components/Footer';
 
 const Home: NextPage = ({
   bannerProps, CTAProps, cardsGridProps,
@@ -24,24 +25,8 @@ const Home: NextPage = ({
           <CTA CTAProps={CTAProps} />
           <InfoCardsGrid cardsGridProps={cardsGridProps} />
         </Suspense>
-        <div>
-          <section>
-            <form action="" method="post">
-              <h2>Contact Us Form</h2>
-
-              <input type="text" name="" id="" />
-            </form>
-          </section>
-        </div>
       </main>
-      <footer>
-        <section>
-          Footer
-        </section>
-        <section>
-          Made by GaldinoMat
-        </section>
-      </footer>
+      <Footer />
     </div>
   </>
 );
