@@ -17,13 +17,13 @@ const Home: NextPage = ({
     </Head>
     <div className={styles.container}>
       <main>
-        <Suspense fallback={<h1>Loading</h1>}>
+        <Suspense>
           <Hero bannerProps={bannerProps} />
         </Suspense>
-        <div>
+        <Suspense>
           <CTA CTAProps={CTAProps} />
           <InfoCardsGrid cardsGridProps={cardsGridProps} />
-        </div>
+        </Suspense>
         <div>
           <section>
             <form action="" method="post">

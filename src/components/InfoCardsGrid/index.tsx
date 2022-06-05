@@ -11,7 +11,7 @@ const InfoCardsGrid = ({ cardsGridProps } : IInfoCardsGridProps) => {
   return (
     <section className={styles.infoCardsContainer} style={width <= 768 ? { gridTemplateRows: `repeat(${cardsGridProps.length}, 1fr)` } : { gridTemplateColumns: `repeat(${cardsGridProps.length}, 1fr)` }}>
       {cardsGridProps.map((infoCard: IInfoCard) => (
-        <InfoCard infoCardImage={infoCard.infoCardImage} infoCardSlug={infoCard.infoCardSlug} infoCardText={infoCard.infoCardText} infoCardTitle={infoCard.infoCardTitle} />
+        <InfoCard key={cardsGridProps.indexOf(infoCard)} infoCardImage={infoCard.infoCardImage} infoCardSlug={infoCard.infoCardSlug} infoCardText={infoCard.infoCardText} infoCardTitle={infoCard.infoCardTitle} />
       ))}
     </section>
   );

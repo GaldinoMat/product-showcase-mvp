@@ -5,8 +5,11 @@
   gap: 2.5rem 0;
   justify-content: center;
   align-items: center;
-  padding: 0 4rem;
   text-align: justify;
+  
+  @include mobile {
+    padding: 0 4rem;
+  }
 
   @include tablet {
     padding: 0 8rem;

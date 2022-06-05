@@ -1,0 +1,117 @@
+@import "../../../styles/mixins";
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4.6875rem;
+  padding: 1.25rem 2rem;
+
+  .headerMobileMenuContainer {
+
+    @include desktop {
+      display: none;
+    }
+
+    .headerMobileNav {
+      opacity: 0;
+      display: none;
+      position: fixed;
+      z-index: 1;
+      height: 100%;
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      top: 0;
+      left: -14rem;
+      background-color: var(--white);
+      padding-left: 2rem;
+      transition: all 150ms ease-in-out;
+
+      @include tablet {
+        left: -28rem;
+      }
+
+      &.headMobileOpen {
+        opacity: 1;
+        display: flex;
+        left: 0;
+      }
+
+      .headerMobileCloseButton {
+        background-color: transparent;
+        border: none;
+        margin-top: 1.5rem;
+        width: 1.25rem;
+        height: 1.25rem;
+
+        .headerMobileCloseButtonIcon {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .headerMobileLinksList {
+        margin-top: 2.5rem;
+
+        li {
+          font-weight: 700;
+
+          &+li {
+            margin-top: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+
+  .logoHeaderContainer {
+    position: relative;
+    width: 11.5rem;
+    height: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .navHamburguerMenuContainer {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-top: .3125rem;
+
+    .navHamburguerMenuIcon {
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .headerDesktopMenuContainer {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+
+    .headerDesktopLinksList {
+      display: flex;
+      margin-left: 3.5rem;
+      padding-top: .3125rem;
+
+      li {
+        margin-right: 2rem;
+        color: var(--dark-grayish-blue);
+
+        &+li {
+          margin: 0 2rem;
+        }
+      }
+    }
+  }
+
+}
