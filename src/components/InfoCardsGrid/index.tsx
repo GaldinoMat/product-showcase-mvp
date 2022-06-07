@@ -9,7 +9,7 @@ const InfoCardsGrid = ({ cardsGridProps } : IInfoCardsGridProps) => {
   const width = useWindowWidth();
 
   return (
-    <section className={styles.infoCardsContainer} style={width <= 768 ? { gridTemplateRows: `repeat(${cardsGridProps.length}, 1fr)` } : { gridTemplateColumns: `repeat(${cardsGridProps.length}, 1fr)` }}>
+    <section className={styles.infoCardsContainer} style={width <= 820 ? { gridTemplateRows: `repeat(${cardsGridProps.length}, 1fr)` } : { gridTemplateColumns: `repeat(${cardsGridProps.length}, 1fr)` }}>
       {cardsGridProps.map((infoCard: IInfoCard) => (
         <InfoCard key={cardsGridProps.indexOf(infoCard)} infoCardImage={infoCard.infoCardImage} infoCardSlug={infoCard.infoCardSlug} infoCardText={infoCard.infoCardText} infoCardTitle={infoCard.infoCardTitle} />
       ))}

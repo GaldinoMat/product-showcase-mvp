@@ -1,0 +1,16 @@
+.callToActionLink {
+  margin-top: 1.5rem;
+  padding: 1.25rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--orange-primary);
+  color: var(--white);
+  transition: all .5s;
+  font-weight: 700;
+
+  &:hover {
+    transition: all .5s;
+    background-color: var(--pale-orange-primary);
+    color: var(--grayish-blue);
+  }
+}

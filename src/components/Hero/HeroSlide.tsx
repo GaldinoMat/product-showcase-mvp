@@ -8,7 +8,7 @@ const HeroSlide = ({
 }: IBannersProps) => (
   <div className={styles.heroSlide}>
     <section className={styles.heroImageContainer} style={{ width: `${width}px` }}>
-      <Image layout="responsive" width={100} height={100} src={bannerImage.url} objectFit="cover" />
+      <Image layout="fill" src={bannerImage.url} objectFit="cover" />
     </section>
     <article className={styles.heroArticle}>
       <h2 className={styles.heroTitle}>{bannerHeroTextTitle}</h2>

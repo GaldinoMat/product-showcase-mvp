@@ -10,7 +10,7 @@ import InfoCardsGrid from '../components/InfoCardsGrid';
 import Footer from '../components/Footer';
 
 const Home: NextPage = ({
-  bannerProps, CTAProps, cardsGridProps,
+  bannerProps, CTAProps, cardsGridProps, CTAFormProps,
 }: any) => (
   <>
     <Head>
@@ -24,6 +24,9 @@ const Home: NextPage = ({
         <Suspense>
           <CTA CTAProps={CTAProps} />
           <InfoCardsGrid cardsGridProps={cardsGridProps} />
+        </Suspense>
+        <Suspense>
+          <CTA CTAProps={CTAFormProps} />
         </Suspense>
       </main>
       <Footer />
@@ -42,6 +45,7 @@ export async function getStaticProps() {
           callToActionTextsArray {
             callToActionText
           }
+          callToActionTitle
           callToActionButtonText
           callToActionUrlLink
         }
@@ -94,7 +98,13 @@ export async function getStaticProps() {
     heroBannerAsset, isAutoPlayOn, autoplayTimer, autoPlayMultiplier,
   } = banners.heroBanners[0];
 
-  const { callToActionTextsArray, callToActionButtonText, callToActionUrlLink } = CallToAction.callToActions[0];
+  const {
+    callToActionTextsArray, callToActionButtonText, callToActionUrlLink,
+  } = CallToAction.callToActions[0];
+
+  const {
+    callToActionTextsArray: callToActionTextsArrayForm, callToActionButtonText: callToActionButtonTextForm, callToActionUrlLink: callToActionUrlLinkForm,
+  } = CallToAction.callToActions[1];
 
   const { cardsGrid } = InfoCards.infoCardGrids[0];
 
@@ -107,9 +117,16 @@ export async function getStaticProps() {
         autoPlayMultiplier,
       },
       CTAProps: {
+        callToActionTitle: CallToAction.callToActions[0].callToActionTitle || null,
         callToActionTextsArray,
         callToActionButtonText,
         callToActionUrlLink,
+      },
+      CTAFormProps: {
+        callToActionTextsArray: callToActionTextsArrayForm,
+        callToActionButtonText: callToActionButtonTextForm,
+        callToActionUrlLink: callToActionUrlLinkForm,
+        callToActionTitle: CallToAction.callToActions[1].callToActionTitle || null,
       },
       cardsGridProps: cardsGrid,
     },

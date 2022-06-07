@@ -3,5 +3,5 @@ interface ICallToActionText {
 }
 
 export interface ICallToActionProps {
-  CTAProps: { callToActionTextsArray: ICallToActionText[], callToActionButtonText: string, callToActionUrlLink: string }
+  CTAProps: { callToActionTextsArray: ICallToActionText[], callToActionButtonText: string, callToActionUrlLink: string, callToActionTitle?: string }
 }
