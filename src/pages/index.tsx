@@ -7,7 +7,6 @@ import client from '../../apolloClient';
 import Hero from '../components/Hero';
 import CTA from '../components/CTA';
 import InfoCardsGrid from '../components/InfoCardsGrid';
-import Footer from '../components/Footer';
 
 const Home: NextPage = ({
   bannerProps, CTAProps, cardsGridProps, CTAFormProps,
@@ -29,11 +28,9 @@ const Home: NextPage = ({
           <CTA CTAProps={CTAFormProps} />
         </Suspense>
       </main>
-      <Footer />
     </div>
   </>
 );
-
 export default Home;
 
 export async function getStaticProps() {

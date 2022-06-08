@@ -15,6 +15,7 @@ const MobileNav = () => {
           onClick={() => setIsOpen(true)}
         />
       </div>
+      {isOpen && (<div aria-label="close-mobile-nav-button" role="button" className={`${styles.backLayer} ${isOpen ? styles.active : ''} `} onClick={() => setIsOpen(false)} onKeyDown={() => setIsOpen(false)} tabIndex={0} />)}
       <nav className={`${styles.headerMobileNav} ${isOpen && styles.headMobileOpen}`}>
         <button type="button" className={styles.headerMobileCloseButton}>
           <AiOutlineClose

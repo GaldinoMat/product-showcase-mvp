@@ -18,10 +18,10 @@
     left: 0;
     right: 0;
     margin: 0 auto;
-    width:75%;
+    width: 75%;
     height: .0625rem;
   }
-  
+
   @include desktop {
     padding: 1.25rem 8rem;
   }
@@ -32,54 +32,74 @@
       display: none;
     }
 
-    .headerMobileNav {
-      opacity: 0;
-      display: none;
+    .backLayer {
+      background-color: black;
+      height: 100vh;
+      width: 100vw;
       position: fixed;
-      z-index: 1;
-      height: 100%;
-      width: 50vw;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      left: 0;
       top: 0;
-      left: -14rem;
-      background-color: var(--white);
-      padding-left: 2rem;
+      opacity: 0%;
+      pointer-events: none;
+      outline: none;
       transition: all 150ms ease-in-out;
 
-      @include tablet {
-        left: -28rem;
+      &.active {
+        opacity: 50%;
+        pointer-events: all;
       }
 
-      &.headMobileOpen {
-        opacity: 1;
-        display: flex;
-        left: 0;
+    }
+
+  }
+
+  .headerMobileNav {
+    opacity: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    top: 0;
+    left: -14rem;
+    background-color: var(--white);
+    padding-left: 2rem;
+    transition: all 150ms ease-in-out;
+
+    @include tablet {
+      left: -28rem;
+    }
+
+    &.headMobileOpen {
+      opacity: 1;
+      display: flex;
+      left: 0;
+    }
+
+    .headerMobileCloseButton {
+      background-color: transparent;
+      border: none;
+      margin-top: 1.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+
+      .headerMobileCloseButtonIcon {
+        width: 100%;
+        height: 100%;
       }
+    }
 
-      .headerMobileCloseButton {
-        background-color: transparent;
-        border: none;
-        margin-top: 1.5rem;
-        width: 1.25rem;
-        height: 1.25rem;
+    .headerMobileLinksList {
+      margin-top: 2.5rem;
 
-        .headerMobileCloseButtonIcon {
-          width: 100%;
-          height: 100%;
-        }
-      }
+      li {
+        font-weight: 700;
 
-      .headerMobileLinksList {
-        margin-top: 2.5rem;
-
-        li {
-          font-weight: 700;
-
-          &+li {
-            margin-top: 1.5rem;
-          }
+        &+li {
+          margin-top: 1.5rem;
         }
       }
     }
