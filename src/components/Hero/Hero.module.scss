@@ -5,6 +5,7 @@
   height: 25rem;
   margin: 0 auto;
   overflow: hidden;
+  max-width: 100%;
 
   @include desktop {
     height: 25rem;
@@ -67,5 +68,26 @@
     border: none;
     font-size: 1.5rem;
     color: var(--white);
+  }
+
+  &.bulletSlider {
+    display: flex;
+    flex-direction: column;
+
+    .sliderContent {
+      height: 75%;
+    }
+
+    .bulletImageContainer {
+      display: flex;
+      height: 25%;
+
+      .bulletImage {
+        height: 100%;
+        position: relative;
+        border: none;
+        background-color: transparent;
+      }
+    }
   }
 }

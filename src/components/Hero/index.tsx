@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, {
   useEffect, useRef, useState,
 } from 'react';
@@ -78,16 +79,46 @@ const Hero = ({
       };
     }
 
-    return () => {};
+    return () => { };
   }, []);
 
+  const checkBulletBanners = () => {
+    const bannersBullets = banners.some((banner: IBannersProps) => banner.bannerBulletImage?.url);
+
+    return bannersBullets;
+  };
+
+  const handleThumbnailClick = (index : number) => setState({
+    ...state,
+    activeIndex: index,
+    translate: (index) * width,
+  });
+
   return (
-    <div className={styles.slider}>
-      <HeroContent translate={translate} transition={transition} width={width * length}>
-        {banners.map((banner: IBannersProps) => (
-          <HeroSlide key={banner.bannerHeroTextTitle} bannerHeroText={banner.bannerHeroText} bannerHeroTextTitle={banner.bannerHeroTextTitle} bannerImage={banner.bannerImage} width={width} />
-        ))}
-      </HeroContent>
+    <div className={`${styles.slider} ${checkBulletBanners() ? styles.bulletSlider : ''}`}>
+      {!checkBulletBanners() ? (
+        <HeroContent translate={translate} transition={transition} width={width * length}>
+          {banners.map((banner: IBannersProps) => (
+            <HeroSlide key={banner.bannerHeroTextTitle} bannerHeroText={banner.bannerHeroText} bannerHeroTextTitle={banner.bannerHeroTextTitle} bannerImage={banner.bannerImage} width={width} />
+          ))}
+        </HeroContent>
+
+      ) : (
+        <>
+          <HeroContent translate={translate} transition={transition} width={width * length}>
+            {banners.map((banner: IBannersProps) => (
+              <HeroSlide key={banner.bannerHeroTextTitle} bannerHeroText={banner.bannerHeroText} bannerHeroTextTitle={banner.bannerHeroTextTitle} bannerImage={banner.bannerImage} width={width} />
+            ))}
+          </HeroContent>
+          <section className={styles.bulletImageContainer}>
+            {banners.map((banner: IBannersProps) => (
+              <button onClick={() => handleThumbnailClick(banners.indexOf(banner))} type="button" aria-label="bullet thumbnail" className={styles.bulletImage} style={{ width: `${width / banners.length}px` }}>
+                <Image key={banner.bannerBulletImage?.url} src={banner.bannerBulletImage?.url as any} layout="fill" objectFit="cover" />
+              </button>
+            ))}
+          </section>
+        </>
+      )}
 
       <Arrow direction="left" handleClick={prevSlide} />
       <Arrow direction="right" handleClick={nextSlide} />
