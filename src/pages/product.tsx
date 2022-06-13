@@ -15,7 +15,7 @@ const PDP = ({ bannerProps, productInfo }: any) => (
     <div>
       <main className={styles.productMain}>
         <Suspense>
-          <Hero bannerProps={bannerProps} />
+          <Hero isHero={false} bannerProps={bannerProps} />
         </Suspense>
         <ProductInfo productInfo={productInfo} />
       </main>

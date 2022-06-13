@@ -17,6 +17,7 @@ export interface IHeroProps {
 
 export interface IHeroBannerProps {
   bannerProps: IHeroProps
+  isHero: boolean
 }
 
 export interface IHeroContentProps {

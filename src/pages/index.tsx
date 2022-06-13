@@ -18,7 +18,7 @@ const Home: NextPage = ({
     <div className={styles.container}>
       <main>
         <Suspense>
-          <Hero bannerProps={bannerProps} />
+          <Hero isHero bannerProps={bannerProps} />
         </Suspense>
         <Suspense>
           <CTA CTAProps={CTAProps} />
