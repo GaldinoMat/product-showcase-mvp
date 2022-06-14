@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import React, {
-  useEffect, useLayoutEffect, useRef, useState,
+  useEffect, useRef, useState,
 } from 'react';
 import useWindowWidth from '../../hooks/useWindowWidth';
 import Arrow from './Arrow';
+import Thumbnails from './components/Thumbnails';
 
 import styles from './Hero.module.scss';
 import HeroContent from './HeroContent';
@@ -26,6 +26,7 @@ const Hero = ({
   const [width, setWidth] = useState(0);
 
   const autoPlay = useRef(() => { });
+  const ref = useRef<HTMLHeadingElement>(null);
 
   const windowWidth = useWindowWidth();
 
@@ -63,6 +64,18 @@ const Hero = ({
     });
   };
 
+  const checkBulletBanners = () => {
+    const bannersBullets = banners.some((banner: IBannersProps) => banner.bannerBulletImage?.url);
+
+    return bannersBullets;
+  };
+
+  const handleThumbnailClick = (index: number) => setState({
+    ...state,
+    activeIndex: index,
+    translate: (index) * width,
+  });
+
   useEffect(() => {
     autoPlay.current = nextSlide;
   });
@@ -83,29 +96,13 @@ const Hero = ({
     return () => { };
   }, []);
 
-  const ref = useRef<HTMLHeadingElement>(null);
-
   useEffect(() => {
-    console.log(ref.current ? ref.current.offsetWidth + 1 : 0);
-
     if (isHero) {
       setWidth(windowWidth);
     } else {
       setWidth(ref.current ? ref.current.offsetWidth + 1 : 0);
     }
   }, [ref.current, windowWidth]);
-
-  const checkBulletBanners = () => {
-    const bannersBullets = banners.some((banner: IBannersProps) => banner.bannerBulletImage?.url);
-
-    return bannersBullets;
-  };
-
-  const handleThumbnailClick = (index: number) => setState({
-    ...state,
-    activeIndex: index,
-    translate: (index) * width,
-  });
 
   return (
     <div ref={ref} className={`${styles.slider} ${checkBulletBanners() ? styles.bulletSlider : ''}`}>
@@ -117,9 +114,7 @@ const Hero = ({
       {checkBulletBanners() && (
         <section className={styles.bulletImageContainer}>
           {banners.map((banner: IBannersProps) => (
-            <button onClick={() => handleThumbnailClick(banners.indexOf(banner))} type="button" aria-label="bullet thumbnail" className={styles.bulletImage} style={{ width: `${width / banners.length}px` }}>
-              <Image key={banner.bannerBulletImage?.url} src={banner.bannerBulletImage?.url as any} layout="fill" objectFit="cover" />
-            </button>
+            <Thumbnails banner={banner} banners={banners} handleThumbnailClick={handleThumbnailClick} width={width} key={banner.bannerBulletImage?.url} />
           ))}
         </section>
       )}
