@@ -75,19 +75,44 @@
     display: flex;
     flex-direction: column;
 
+    @include desktop {
+      height: 35rem;
+    }
+
     .sliderContent {
       height: 75%;
+
+      @include desktop {
+        .heroImageContainer {
+          span {
+            border-radius: 1rem;
+          }
+        }
+      }
     }
 
     .bulletImageContainer {
       display: flex;
+      justify-content: space-between;
       height: 25%;
+
+      @include desktop {
+        margin-top: 1rem;
+      }
 
       .bulletImage {
         height: 100%;
         position: relative;
         border: none;
         background-color: transparent;
+
+        @include desktop {
+          max-width: 23%;
+
+          span {
+            border-radius: 1rem;
+          }
+        }
       }
     }
   }

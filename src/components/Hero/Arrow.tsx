@@ -6,7 +6,7 @@ import { IArrowProps } from './types/interfaces';
 
 const Arrow = ({ direction, handleClick }: IArrowProps) => {
   const handleArrowDirection = (_direction: string) => (
-    _direction === 'right' ? { right: '25px', transform: 'translate(50%, -50%)' } : { left: '25px', transform: 'translate(-50%, -50%)' }
+    _direction === 'right' ? { right: '25px', transform: 'translate(50%, -75%)' } : { left: '25px', transform: 'translate(-50%, -75%)' }
   );
 
   return (

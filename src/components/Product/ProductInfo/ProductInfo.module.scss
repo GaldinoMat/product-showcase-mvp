@@ -3,6 +3,11 @@
 
 .productInfoContainer {
   padding: 0 2rem;
+
+  @include desktop {
+    max-width: 75%;
+  }
+
   .productInfoTitlesContainer {
     margin: 3rem 0;
   
@@ -34,5 +39,9 @@
   .productInfoButtonContainer {
     display: flex;
     justify-content: center;
+
+    @include desktop {
+      justify-content: flex-start;
+    }
   }
 }
