@@ -13,16 +13,27 @@ const Footer = () => (
         <div className={styles.footerLinksContainer}>
           <ul className={styles.footerSocialMedia}>
             <li className={styles.footerSocialMediaIconContainer}>
-              <AiFillLinkedin className={styles.footerSocialMediaIcon} />
+              <Link href="https://www.github.com/GaldinoMat">
+                <AiFillLinkedin className={styles.footerSocialMediaIcon} />
+              </Link>
             </li>
             <li className={styles.footerSocialMediaIconContainer}>
-              <AiFillGithub className={styles.footerSocialMediaIcon} />
+              <Link href="https://www.github.com/GaldinoMat">
+                <AiFillGithub className={styles.footerSocialMediaIcon} />
+              </Link>
             </li>
           </ul>
           <ul className={styles.footerLinks}>
-            <li>Product</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+              <Link href="/product">
+                Product
+              </Link>
+            </li>
+            <li>
+              <Link href="contact-us">
+                Contact us
+              </Link>
+            </li>
           </ul>
         </div>
       </section>
@@ -31,7 +42,7 @@ const Footer = () => (
       <p>
         Made by
       </p>
-      <Link href="www.github.com/GaldinoMat">
+      <Link href="https://www.github.com/GaldinoMat">
         GaldinoMat
       </Link>
     </section>

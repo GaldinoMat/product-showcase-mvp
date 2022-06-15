@@ -1,0 +1,13 @@
+@import "./mixins";
+
+.divisor {
+  margin: 0 20%;
+}
+
+@include desktop {
+  .contactMain {
+    padding: 8rem 8rem 0 8rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

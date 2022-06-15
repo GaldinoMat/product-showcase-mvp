@@ -1,11 +1,8 @@
 @import "./mixins";
 
-
 @include desktop {
   .productMain {
-    padding-left: 8rem;
-    padding-right: 8rem;
-    padding-top: 6rem;
+    padding: 6rem 8rem 0 8rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;

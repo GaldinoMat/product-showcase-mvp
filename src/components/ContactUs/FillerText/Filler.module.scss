@@ -1,0 +1,19 @@
+.fillerContainer {
+  padding: 0 2rem;
+  .fillerTitleContainer {
+    margin: 1rem 0;
+    
+    h1 {
+      font-size: 2.5rem;
+      color: var(--very-dark-blue);
+    }
+  }
+
+  .fillerTextContainer {
+    margin-bottom: 3rem;
+
+    p {
+      color: var(--dark-grayish-blue);
+    }
+  }
+}

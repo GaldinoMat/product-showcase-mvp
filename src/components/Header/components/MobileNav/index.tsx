@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -24,9 +25,16 @@ const MobileNav = () => {
           />
         </button>
         <ul className={styles.headerMobileLinksList}>
-          <li>Product</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link href="product">
+              Product
+            </Link>
+          </li>
+          <li>
+            <Link href="contact-us">
+              Contact us
+            </Link>
+          </li>
         </ul>
       </nav>
     </section>

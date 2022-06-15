@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import styles from '../../Header.module.scss';
@@ -5,9 +6,16 @@ import styles from '../../Header.module.scss';
 const DesktopNav = () => (
   <section className={styles.headerDesktopMenuContainer}>
     <ul className={styles.headerDesktopLinksList}>
-      <li>Product</li>
-      <li>About</li>
-      <li>Contact</li>
+      <li>
+        <Link href="product">
+          Product
+        </Link>
+      </li>
+      <li>
+        <Link href="contact-us">
+          Contact us
+        </Link>
+      </li>
     </ul>
   </section>
 );
