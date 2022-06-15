@@ -2,12 +2,27 @@
 
 .divisor {
   margin: 0 20%;
+  background-color: var(--light-grayish-blue);
+  border-color: var(--light-grayish-blue);
+
+  @include desktop {
+    margin: 5% 0;
+  }
 }
 
 @include desktop {
   .contactMain {
-    padding: 8rem 8rem 0 8rem;
+    padding-top: 8rem;
+    max-width: 71.25rem;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    
+    .contactContent {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      width: 83%;
+    }
   }
 }

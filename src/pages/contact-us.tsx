@@ -16,9 +16,11 @@ const ContactUs = () => {
         </title>
       </Head>
       <main className={styles.contactMain}>
-        <FormFillerText />
-        <hr className={styles.divisor} />
-        <ContactUsForm />
+        <div className={styles.contactContent}>
+          <FormFillerText />
+          <hr className={styles.divisor} />
+          <ContactUsForm />
+        </div>
       </main>
     </>
   );

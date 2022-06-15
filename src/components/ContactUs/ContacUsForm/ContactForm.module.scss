@@ -1,13 +1,24 @@
+@import "../../../../styles/mixins";
+
 .contactFormContainer {
   margin-top: 3rem;
   padding: 0 2rem;
+  
+  @include desktop {
+    width: 58%;
+    margin-top: 0;
+  }
 
   .contactFormTitleContainer {
     margin-bottom: 1rem;
-
+    
     h2 {
       font-size: 2rem;
       color: var(--very-dark-blue);
+
+      @include desktop {
+        font-size: 2.5rem;
+      }
     }
   }
 
