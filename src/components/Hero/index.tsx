@@ -94,7 +94,7 @@ const Hero = ({
     }
 
     return () => { };
-  }, []);
+  }, [autoPlayBanner, isAutoplayOn, timeAmount]);
 
   useEffect(() => {
     if (isHero) {
@@ -102,7 +102,7 @@ const Hero = ({
     } else {
       setWidth(ref.current ? ref.current.offsetWidth + 1 : 0);
     }
-  }, [ref.current, windowWidth]);
+  }, [isHero, windowWidth]);
 
   return (
     <div ref={ref} className={`${styles.slider} ${checkBulletBanners() ? styles.bulletSlider : ''}`}>

@@ -13,14 +13,14 @@ const Footer = () => (
         <div className={styles.footerLinksContainer}>
           <ul className={styles.footerSocialMedia}>
             <li className={styles.footerSocialMediaIconContainer}>
-              <Link href="https://www.github.com/GaldinoMat">
+              <a href="https://www.linkedin.com/in/mateus-galdino-silva/" target="_blank" rel="noreferrer">
                 <AiFillLinkedin className={styles.footerSocialMediaIcon} />
-              </Link>
+              </a>
             </li>
             <li className={styles.footerSocialMediaIconContainer}>
-              <Link href="https://www.github.com/GaldinoMat">
+              <a href="https://www.github.com/GaldinoMat" target="_blank" rel="noreferrer">
                 <AiFillGithub className={styles.footerSocialMediaIcon} />
-              </Link>
+              </a>
             </li>
           </ul>
           <ul className={styles.footerLinks}>
@@ -42,9 +42,9 @@ const Footer = () => (
       <p>
         Made by
       </p>
-      <Link href="https://www.github.com/GaldinoMat">
+      <a href="https://www.github.com/GaldinoMat" target="_blank" rel="noreferrer">
         GaldinoMat
-      </Link>
+      </a>
     </section>
   </footer>
 );

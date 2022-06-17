@@ -12,7 +12,7 @@ const ContactUsForm = () => (
         <input type="text" name="" id="" placeholder="First name" />
         <input type="text" name="" id="" placeholder="Last name" />
         <input type="email" name="" id="" placeholder="E-mail" />
-        <textarea name="" id="" cols={30} rows={10} placeholder="Write your message" />
+        <textarea name="" id="" cols={30} rows={10} placeholder="Write your message" style={{ resize: 'none' }} />
         <button type="submit">
           Send message!
         </button>

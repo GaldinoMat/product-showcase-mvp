@@ -15,7 +15,7 @@
     padding: 0 8rem;
   }
 
-  @include desktop {
+  @include smallDesktop {
     gap: 0 2rem;
     padding: 0 10rem;
   }
@@ -28,8 +28,12 @@
     align-items: center;
     justify-self: center;
 
+    @include tablet {
+      width: 12rem;
+    }
+
     @include desktop {
-      width: 25rem;
+      width: 100%;
     }
 
     .infoCardImage {
