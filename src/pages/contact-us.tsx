@@ -5,25 +5,21 @@ import styles from '../../styles/Contact.module.scss';
 import ContactUsForm from '../components/ContactUs/ContacUsForm';
 import FormFillerText from '../components/ContactUs/FillerText';
 
-const ContactUs = () => {
-  console.log('hello');
-
-  return (
-    <>
-      <Head>
-        <title>
-          Sneakers | Contact Us
-        </title>
-      </Head>
-      <main className={styles.contactMain}>
-        <div className={styles.contactContent}>
-          <FormFillerText />
-          <hr className={styles.divisor} />
-          <ContactUsForm />
-        </div>
-      </main>
-    </>
-  );
-};
+const ContactUs = () => (
+  <>
+    <Head>
+      <title>
+        Sneakers | Contact Us
+      </title>
+    </Head>
+    <main className={styles.contactMain}>
+      <div className={styles.contactContent}>
+        <FormFillerText />
+        <hr className={styles.divisor} />
+        <ContactUsForm />
+      </div>
+    </main>
+  </>
+);
 
 export default ContactUs;
