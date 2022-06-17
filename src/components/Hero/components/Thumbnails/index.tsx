@@ -15,7 +15,7 @@ const Thumbnails = ({
   handleThumbnailClick, banners, width, banner,
 }: IThumbnailsProps) => (
   <button onClick={() => handleThumbnailClick(banners.indexOf(banner))} type="button" aria-label="bullet thumbnail" className={styles.bulletImage} style={{ width: `${width / banners.length}px` }}>
-    <Image src={banner.bannerBulletImage?.url as any} layout="fill" objectFit="cover" />
+    <Image src={banner.bannerBulletImage?.url as any} layout="fill" objectFit="cover" alt=" thumbnail" />
   </button>
 );
 

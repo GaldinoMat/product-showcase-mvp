@@ -5,7 +5,11 @@ import styles from './Filler.module.scss';
 const FormFillerText = () => (
   <section className={styles.fillerContainer}>
     <div className={styles.fillerTitleContainer}>
-      <h1>Let's talk a bit!</h1>
+      <h1>
+        Let
+        &apos;
+        s talk a bit!
+      </h1>
     </div>
     <div className={styles.fillerTextContainer}>
       <p>
