@@ -22,7 +22,7 @@ const ProductInfo = ({
         </p>
       </div>
       <div className={styles.productInfoButtonContainer}>
-        <LinkButton callToActionButtonText={productPageButtonText} callToActionUrlLink="" />
+        <LinkButton callToActionButtonText={productPageButtonText} callToActionUrlLink="contact-us" />
       </div>
     </section>
   );
